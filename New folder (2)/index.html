@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+
+    <style>
+        /* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(to right,#7B1203,#B62C08);
+color:#333;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 10%;
+background:linear-gradient(to right,#7B1203,#B62C08);
+color:white;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+}
+
+/* NAV LINKS */
+
+.nav-links{
+list-style:none;
+display:flex;
+gap:25px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-size:15px;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#ffd5c8;
+}
+
+/* DROPDOWN */
+
+.dropdown{
+position:relative;
+}
+
+.dropdown-menu{
+display:none;
+position:absolute;
+top:35px;
+left:0;
+background:#7B1203;
+list-style:none;
+border-radius:5px;
+overflow:hidden;
+min-width:160px;
+}
+
+.dropdown-menu li{
+padding:10px;
+}
+
+.dropdown-menu li a{
+color:white;
+}
+
+.dropdown:hover .dropdown-menu{
+display:block;
+}
+
+/* HAMBURGER */
+
+.menu-toggle{
+display:none;
+font-size:26px;
+cursor:pointer;
+}
+
+/* HERO SECTION */
+
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:80px 10%;
+min-height:90vh;
+background:white;
+}
+
+.hero-text{
+max-width:500px;
+}
+
+.hero-text h3{
+color:#555;
+font-size:22px;
+}
+
+.hero-text h1{
+font-size:48px;
+margin:10px 0;
+}
+
+.hero-text h2{
+color:#B62C08;
+font-size:28px;
+}
+
+.hero-text p{
+margin:20px 0;
+line-height:1.6;
+color:#666;
+}
+
+.hero-buttons{
+margin-top:20px;
+}
+
+.btn{
+text-decoration:none;
+background:#B62C08;
+color:white;
+padding:12px 25px;
+border-radius:6px;
+margin-right:10px;
+display:inline-block;
+}
+
+.btn-outline{
+border:2px solid #B62C08;
+color:#B62C08;
+padding:10px 25px;
+border-radius:6px;
+text-decoration:none;
+}
+
+.hero-image img{
+width:350px;
+border-radius:10px;
+}
+
+/* ABOUT */
+
+.about{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:80px 10%;
+background:#f7f7f7;
+}
+
+.about-image img{
+width:350px;
+border-radius:10px;
+}
+
+.about-content{
+max-width:550px;
+}
+
+.about-content h2{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.about-content h4{
+color:#B62C08;
+margin-bottom:15px;
+}
+
+.about-content p{
+color:#666;
+line-height:1.6;
+}
+
+/* SKILLS */
+
+.skills{
+padding:80px 10%;
+background:white;
+}
+
+.section-title{
+text-align:center;
+font-size:32px;
+margin-bottom:40px;
+}
+
+.skills-container{
+max-width:700px;
+margin:auto;
+}
+
+.skill{
+margin-bottom:25px;
+}
+
+.skill-info{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+font-weight:bold;
+}
+
+.progress-bar{
+width:100%;
+height:10px;
+background:#ddd;
+border-radius:5px;
+overflow:hidden;
+}
+
+.progress{
+height:100%;
+background:linear-gradient(to right,#7B1203,#B62C08);
+animation:progressAnimation 2s forwards;
+}
+
+.photoshop{width:95%;}
+.illustrator{width:90%;}
+.branding{width:85%;}
+.ui{width:80%;}
+.social{width:88%;}
+
+@keyframes progressAnimation{
+from{width:0;}
+}
+
+/* PROJECTS */
+
+.projects{
+padding:80px 10%;
+background:#f7f7f7;
+}
+
+.projects-container{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.project-card{
+background:white;
+border-radius:10px;
+overflow:hidden;
+transition:0.3s;
+text-align:center;
+}
+
+.project-card img{
+width:100%;
+height:160px;
+object-fit:cover;
+}
+
+.project-card h3{
+padding:10px;
+}
+
+.project-card:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* EXPERIENCE */
+
+.experience{
+padding:80px 10%;
+background:white;
+text-align:center;
+}
+
+.timeline{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+}
+
+.timeline-box{
+background:#f7f7f7;
+width:250px;
+padding:20px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.timeline-box h4{
+color:#B62C08;
+}
+
+.timeline-box:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* AWARDS */
+
+.awards{
+padding:80px 10%;
+background:#f7f7f7;
+text-align:center;
+}
+
+.awards-container{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+margin-top:40px;
+}
+
+.award-card{
+background:white;
+padding:25px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.award-card img{
+width:100%;
+height:150px;
+object-fit:cover;
+}
+
+.award-card h4{
+color:#B62C08;
+}
+
+.award-card:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* CERTIFICATES */
+
+.certificates{
+padding:80px 10%;
+background:white;
+text-align:center;
+}
+
+.certificates-container{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+margin-top:40px;
+}
+
+.certificate-card{
+background:#f7f7f7;
+padding:25px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.certificate-card img{
+width:100%;
+height:150px;
+object-fit:cover;
+}
+
+.certificate-card h4{
+color:#B62C08;
+}
+
+.certificate-card:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* CONTACT */
+
+.contact{
+padding:80px 10%;
+background:#f7f7f7;
+}
+
+.contact-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+.contact-form form{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.contact-form input,
+.contact-form textarea{
+padding:12px;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+.contact-form button{
+padding:12px;
+border:none;
+background:#B62C08;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+.contact-form button:hover{
+background:#7B1203;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+.projects-container{
+grid-template-columns:repeat(3,1fr);
+}
+
+.awards-container{
+grid-template-columns:repeat(2,1fr);
+}
+
+.certificates-container{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+.menu-toggle{
+display:block;
+}
+
+.nav-links{
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:#7B1203;
+flex-direction:column;
+align-items:center;
+display:none;
+padding:20px 0;
+}
+
+.nav-links.active{
+display:flex;
+}
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-image img{
+width:250px;
+margin-top:30px;
+}
+
+.about{
+flex-direction:column;
+text-align:center;
+}
+
+.about-image img{
+width:250px;
+margin-bottom:20px;
+}
+
+.projects-container{
+grid-template-columns:repeat(2,1fr);
+}
+
+.awards-container{
+grid-template-columns:1fr;
+}
+
+.certificates-container{
+grid-template-columns:1fr;
+}
+
+.contact-container{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:480px){
+
+.hero-text h1{
+font-size:34px;
+}
+
+.section-title{
+font-size:26px;
+}
+
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">MyPortfolio</div>
+
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact Us</a></li>
+
+                <li class="dropdown">
+                    <a href="#">More ▾</a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Experience</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Trainings</a></li>
+                        <li><a href="#">Award</a></li>
+                        <li><a href="#">Certificate</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+            <!-- Hamburger -->
+
+            <div class="menu-toggle" id="menuToggle">
+                ☰
+            </div>
+
+        </nav>
+    </header>
+    <main>
+        <!-- Sections -->
+        <section class="hero">
+
+            <div class="hero-text">
+                <h3>Hello, I'm</h3>
+                <h1>Muhammad Umair Afzal</h1>
+                <h2>Senior Graphic Designer</h2>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, praesentium id. Cumque, inventore.
+                    Error fuga ipsam hic quod molestiae quaerat non nulla provident at consequuntur impedit ut
+                    aspernatur neque, tempora sapiente, in, saepe velit quos. Reprehenderit laboriosam praesentium non
+                    ratione. Reprehenderit totam consequuntur voluptatibus saepe omnis, animi aspernatur aut placeat?
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="https://wa.me/923291455877" class="btn">Hire Me</a>
+                    <a href="assests/CV.docx" class="btn-outline">Download CV</a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="images/profile.png" alt="profile image">
+            </div>
+
+        </section>
+
+        <section id="about" class="about">
+
+            <div class="about-image">
+                <img src="" alt="Muhammad Umair Afzal">
+            </div>
+
+            <div class="about-content">
+
+                <h2>About Me</h2>
+
+                <h3>Muhammad Umair Afzal</h3>
+
+                <h4>Senior Graphic Designer</h4>
+
+                <p>
+                    I am a passionate and creative Senior Graphic Designer with extensive experience in developing
+                    visually compelling designs that communicate ideas effectively. With a strong eye for detail
+                    and a deep understanding of design principles, I specialize in creating branding, digital
+                    graphics, marketing materials, and visual identities that help businesses stand out.
+                </p>
+
+                <p>
+                    Over the years, I have worked with diverse clients and teams to transform concepts into
+                    engaging visual solutions. My expertise includes Adobe Creative Suite, branding strategy,
+                    social media design, and modern UI visuals. I am committed to delivering high-quality
+                    creative work that not only looks great but also drives results.
+                </p>
+
+                <a href="assests/CV.docx" class="btn">Download CV</a>
+
+            </div>
+
+        </section>
+
+        <section id="skills" class="skills">
+
+            <h2 class="section-title">My Skills/ Tools</h2>
+
+            <div class="skills-container">
+
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>Photoshop</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress photoshop"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>Illustrator</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress illustrator"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>Branding</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress branding"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>UI Design</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress ui"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>Social Media Design</span>
+                        <span>88%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress social"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="experience" class="experience">
+
+            <h2 class="section-title">Experience</h2>
+
+            <div class="timeline">
+
+                <div class="timeline-box">
+                    <h3>Creative Studio</h3>
+                    <h4>Senior Graphic Designer</h4>
+                    <span>2022 - Present</span>
+                    <p>Leading creative design projects including branding, social media campaigns, and marketing
+                        materials for multiple international clients.</p>
+                </div>
+
+                <div class="timeline-box">
+                    <h3>Design Hub Agency</h3>
+                    <h4>Graphic Designer</h4>
+                    <span>2020 - 2022</span>
+                    <p>Worked on logo design, visual identity systems, and promotional graphics for businesses and
+                        startups.</p>
+                </div>
+
+                <div class="timeline-box">
+                    <h3>Media Craft</h3>
+                    <h4>Junior Designer</h4>
+                    <span>2018 - 2020</span>
+                    <p>Designed digital advertisements, posters, and social media creatives while collaborating with
+                        marketing teams.</p>
+                </div>
+
+                <div class="timeline-box">
+                    <h3>Freelance Work</h3>
+                    <h4>Graphic Designer</h4>
+                    <span>2017 - 2018</span>
+                    <p>Delivered freelance design projects including branding, flyers, banners, and product designs for
+                        various clients.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="projects" class="projects">
+
+            <h2 class="section-title">My Projects</h2>
+
+            <div class="projects-container">
+
+                <!-- Row 1 (5 boxes) -->
+
+                <div class="project-card">
+                    <img src="images/project1.jpg">
+                    <h3>Brand Design</h3>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/project2.jpg">
+                    <h3>Logo Design</h3>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/project3.jpg">
+                    <h3>Social Media Post</h3>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/project4.jpg">
+                    <h3>UI Design</h3>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/project5.jpg">
+                    <h3>Banner Design</h3>
+                </div>
+
+
+                <!-- Row 2 (4 boxes) -->
+
+                <div class="project-card">
+                    <img src="images/project6.jpg">
+                    <h3>Poster Design</h3>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/project7.jpg">
+                    <h3>Product Design</h3>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/project8.jpg">
+                    <h3>Flyer Design</h3>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/project9.jpg">
+                    <h3>Business Card</h3>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/project9.jpg">
+                    <h3>Business Card</h3>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- <section id="trainings">
+            <h1>Trainings Section</h1>
+        </section> -->
+
+        <section id="awards" class="awards">
+
+            <h2 class="section-title">Achievements & Awards</h2>
+
+            <div class="awards-container">
+
+                <div class="award-card">
+                    <img src="" alt="img">
+                    <h3>Advanced Graphic Design</h3>
+                    <h4>Punjab University</h4>
+                    <span>2022</span>
+                </div>
+
+                <div class="award-card">
+                    <img src="" alt="img">
+                    <h3>UI / UX Design Course</h3>
+                    <h4>Coursera</h4>
+                    <span>2021</span>
+                </div>
+
+                <div class="award-card">
+                    <img src="" alt="img">
+                    <h3>Brand Identity Masterclass</h3>
+                    <h4>Udemy</h4>
+                    <span>2020</span>
+                </div>
+
+                <div class="award-card">
+                    <img src="" alt="img">
+                    <h3>Creative Design Award</h3>
+                    <h4>Design Institute</h4>
+                    <span>2019</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="certificates" class="certificates">
+
+            <h2 class="section-title">Certificates</h2>
+
+            <div class="certificates-container">
+
+                <div class="certificate-card">
+                    <img src="" alt="img">
+                    <h3>Adobe Photoshop Mastery</h3>
+                    <h4>Adobe Institute</h4>
+                    <span>2023</span>
+                </div>
+
+                <div class="certificate-card">
+                    <img src="" alt="img">
+                    <h3>Professional Illustrator</h3>
+                    <h4>Coursera</h4>
+                    <span>2022</span>
+                </div>
+
+                <div class="certificate-card">
+                    <img src="" alt="img">
+                    <h3>UI Design Fundamentals</h3>
+                    <h4>Udemy</h4>
+                    <span>2021</span>
+                </div>
+
+                <div class="certificate-card">
+                    <img src="" alt="img">
+                    <h3>Brand Identity Design</h3>
+                    <h4>Design Academy</h4>
+                    <span>2020</span>
+                </div>
+
+                <div class="certificate-card">
+                    <img src="" alt="img">
+                    <h3>Social Media Design</h3>
+                    <h4>Creative School</h4>
+                    <span>2019</span>
+                </div>
+
+                <div class="certificate-card">
+                    <img src="" alt="img">
+                    <h3>Graphic Design Diploma</h3>
+                    <h4>Punjab University</h4>
+                    <span>2018</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- <section id="team">
+            <h1>Team Section</h1>
+        </section>
+
+        <section id="testimonials">
+            <h1>Testimonials Section</h1>
+        </section> -->
+
+        <section id="contact" class="contact">
+
+            <h2 class="section-title">Contact Me</h2>
+
+            <div class="contact-container">
+
+                <!-- Contact Info -->
+
+                <div class="contact-info">
+
+                    <h3>Get In Touch</h3>
+
+                    <p>If you have any project or work for me, feel free to contact me.</p>
+
+                    <p><strong>Email:</strong> your@email.com</p>
+
+                    <p><strong>Phone:</strong> +92 300 0000000</p>
+
+                    <p><strong>Location:</strong> Pakistan</p>
+
+                </div>
+
+                <!-- Contact Form -->
+
+                <div class="contact-form">
+
+                    <form>
+
+                        <input type="text" placeholder="Your Name" required>
+
+                        <input type="email" placeholder="Your Email" required>
+
+                        <textarea placeholder="Your Message" rows="5"></textarea>
+
+                        <button type="submit">Send Message</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+    <script>
+        // Dropdown toggle for "More"
+        const dropdown = document.querySelector(".dropdown");
+        const dropdownLink = dropdown.querySelector("a"); // 'More ▾'
+        const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+
+        dropdownLink.addEventListener("click", (e) => {
+            e.preventDefault(); // prevent default link action
+            dropdownMenu.classList.toggle("show");
+        });
+
+        // Close dropdown if clicked outside
+        window.addEventListener("click", (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdownMenu.classList.remove("show");
+            }
+        });
+    </script>
+</body>
+
+</html>
